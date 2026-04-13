@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Like Toggle</title>
+</head>
+<body>
+
+<h2>My Post 👍</h2>
+
+<p id="likeCount">Likes: 0</p>
+
+<button onclick="toggleLike()" id="likeBtn">🤍 Like</button>
+
+<script>
+    let likes = 0;
+    let liked = false;
+
+    function toggleLike() {
+        if (!liked) {
+            likes++;
+            liked = true;
+            document.getElementById("likeBtn").innerText = "❤️ Liked";
+        } else {
+            likes--;
+            liked = false;
+            document.getElementById("likeBtn").innerText = "🤍 Like";
+        }
+
+        document.getElementById("likeCount").innerText = "Likes: " + likes;
+    }
+</script>
+
+</body>
+</html>

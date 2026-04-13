@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Result Calculator</title>
+<link rel="stylesheet" href="./style4.css">
+
+</head>
+<body>
+<div class="container">
+  <h2>Student Result</h2>
+  <input type="number" id="subjects" placeholder="Enter number of subjects">
+  <button onclick="calculate()">Calculate</button>
+  <div class="result" id="result"></div>
+</div>
+<script>
+function calculate() {
+  let n = document.getElementById("subjects").value;
+  if (n <= 0) {
+    alert("Enter valid number of subjects");
+    return;
+  }
+  let total = 0;
+  // Loop to take marks
+  for (let i = 1; i <= n; i++) {
+    let marks = parseFloat(prompt("Enter marks for subject " + i));
+    if (marks < 0 || marks > 100) {
+      alert("Invalid marks");
+      return;
+    }
+    total += marks;
+  }
+  let average = total / n;
+  let grade, result;
+  // Conditions
+  if (average >= 75) {
+    grade = "A";
+    result = "Pass";
+  } else if (average >= 50) {
+    grade = "B";
+    result = "Pass";
+  } else if (average >= 33) {
+    grade = "C";
+    result = "Pass";
+  } else {
+    grade = "F";
+    result = "Fail";
+  }
+  // Display result
+  document.getElementById("result").innerHTML =
+    "Total: " + total + "<br>" +
+    "Average: " + average.toFixed(2) + "<br>" +
+    "Grade: " + grade + "<br>" +
+    "Result: " + result;
+}
+</script>
+</body>
+</html>
